@@ -11,6 +11,9 @@ import PlaceOrder from './pages/placeorder';
 import Orders from './pages/orders';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import SearchBar from './components/SearchBar';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   return (
@@ -18,7 +21,9 @@ const App = () => {
       
       {React.createElement('span', null, )}
 
+      <ToastContainer />
       <Navbar/>
+      <SearchBar/>
   
       <Routes>
         <Route path='/' element={<Home/>} />
