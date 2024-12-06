@@ -1,9 +1,9 @@
-import multer from 'multer'
+import multer from "multer"
 
 const storage = multer.diskStorage({
     filename:function(req,file,callback){
 
-        callback(null,file,originalname)
+        callback(null,file.originalname)
     }
     
 })

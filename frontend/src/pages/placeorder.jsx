@@ -68,9 +68,14 @@ const placeorder = () => {
                 <img className='h-5 mx-4' src={assets.fnb} alt="" />
               </div>
 
+              <div onClick={() => setMethod('visa')} className='flex items-center gap-3 border p-2 px-3 cursor-pointer'>
+                <p className={`min-w-3.5 h-3.5 border rounded-full ${method === 'visa' ? 'bg-green-600' :'' } `}></p>
+                <img className='h-5 mx-4' src={assets.visa_logo} alt="" />
+              </div>
+
               <div onClick={() => setMethod('cod')} className='flex items-center gap-3 border p-2 px-3 cursor-pointer'>
                 <p className={`min-w-3.5 h-3.5 border rounded-full ${method === 'cod' ? 'bg-green-600' :'' }`}></p>
-                <p className='text-gray-600 text-sm font-medium mx-4'>CASH ON DELIVERY </p>
+                <p className='text-gray-600 text-sm font-small mx-4'>CASH ON DELIVERY </p>
               </div>
 
             </div>

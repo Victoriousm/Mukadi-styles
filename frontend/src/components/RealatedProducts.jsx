@@ -30,7 +30,7 @@ const RealatedProducts = ({category,subCategory}) => {
 
         <div className='grid grid-col-2 sm:grid-cols-3  md:grid-col-4 lg:grid-cols-5 gap-4 gap-y-6'>
             {related.map((item,index)=>
-            <ProductItem key={index}  id={item.id} image={item.image} name={item.name} price={item.price}/>
+            <ProductItem key={index}  id={item._id} image={item.image} name={item.name} price={item.price}/>
             
             )}
         </div>

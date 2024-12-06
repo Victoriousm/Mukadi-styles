@@ -20,7 +20,7 @@ const cart = () => {
       for(const item in cartItems[items]){
         if (cartItems[items][item] > 0) {
           tempData.push({
-            id: items,
+            _id: items,
             size:item,
             quantity:cartItems[items][item]
           })
@@ -28,6 +28,7 @@ const cart = () => {
         }
       }
     }
+    
     setCartData(tempData)
   },[cartItems])
   
@@ -43,7 +44,7 @@ const cart = () => {
         {
           cartData.map((item,index)=>{
 
-           const productData =  products.find((product)=> product.id === item.id);
+           const productData =  products.find((product)=> product._id === item._id);
            return(
             <div key={index} className='py-4 border-b text-gray-700 grid grid-cols-[4fr_0.5fr_0.5fr] sm:grid-cols-[4fr_2fr_0.5fr] items-center gap-4'>
                  <div className='flex items-start gap-6'>
@@ -57,8 +58,8 @@ const cart = () => {
                   </div>
                  </div>
                  {/* in this input field the event at first in gotten as a string so thats wht we changed it to a number on the last part this is so that the cart number can increase when we increase the quantity */}
-                 <input onChange={(e)=> e.target.value === '' || e.target.value === '0' ? null : updateQuantity(item.id,item.size,Number(e.target.value))} className='border max-w-10 sm:max-w-20 px-1 sm:px-2 py-1' type="number" min={1} defaultValue={item.quantity} />
-                 <img onClick={()=> updateQuantity(item.id,item.size,0)} className='w-4 mr-4 sm:w-5 cursor-pointer' src={assets.bin_icon} alt="" />
+                 <input onChange={(e)=> e.target.value === '' || e.target.value === '0' ? null : updateQuantity(item._id,item.size,Number(e.target.value))} className='border max-w-10 sm:max-w-20 px-1 sm:px-2 py-1' type="number" min={1} defaultValue={item.quantity} />
+                 <img onClick={()=> updateQuantity(item._id,item.size,0)} className='w-4 mr-4 sm:w-5 cursor-pointer' src={assets.bin_icon} alt="" />
             </div>
 
            )

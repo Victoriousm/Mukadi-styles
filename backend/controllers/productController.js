@@ -16,10 +16,10 @@ const addProduct = async (req,res)=>{
 
         let imagesUrl = await Promise.all(
             images.map(async (item )=>{
-                let result = await connectCloudinary.uploader.upload(item.path,{resource_type:'image'});
+                let result = await cloudinary.uploader.upload(item.path,{resource_type:'image'});
                 return result.secure_url
             })
-        )
+        );
 
 
         const productData ={
@@ -57,6 +57,7 @@ const listProduct = async (req,res)=>{
     try {
         
         const products = await productModel.find({});
+        console.log(`Is it reaching here: ${products}`)
         res.json({success:true,products})
 
     } catch (error) {

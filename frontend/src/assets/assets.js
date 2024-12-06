@@ -92,6 +92,7 @@ import stripe_logo from './stripe_logo.png'
 import cross_icon from './cross_icon.png'
 import airtel from './airtel.png'
 import fnb from './fnb.png'
+import visa_logo from './visa_logo.png'
 
 export const assets = {
     logo,
@@ -113,7 +114,8 @@ export const assets = {
     stripe_logo,
     cross_icon,
     airtel,
-    fnb
+    fnb,
+    visa_logo
 }
 
 export const products = [
