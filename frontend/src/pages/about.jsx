@@ -11,10 +11,9 @@ const about = () => {
       <div className='text-2xl text-center pt-8 border-t'>
         <Title text1={'ABOUT'} text2={'US'}/>
         <div className='my-10 flex flex-col md:flex-row gap-16 '>
-          <img className='w-full md:max-w-[450px]' src={assets.about_img} alt="" />
+          <img className='w-full md:max-w-[450px] h-85' src={assets.about_img} alt="" />
           <div className='flex flex-col justify-center gap-6 md:w-2/4 text-gray-600 '>
              <p>In the vibrant heart of Accra, a visionary designer named Victorious  Mukadi founded Mukadi Styles, a fashion house that celebrates the rich tapestry of African heritage. Inspired by her grandmother's colorful kente cloth and the rhythmic beats of traditional drumming, Amina sought to blend contemporary designs with age-old craftsmanship. Each collection tells a story, weaving together threads of culture, identity, and resilience.</p>
-             <p>Mukadi Styles quickly gained attention for its bold patterns and sustainable practices, using locally sourced materials and empowering artisans from surrounding communities. Fashion shows became a cultural phenomenon, drawing crowds eager to witness the fusion of modernity and tradition on the runway. Celebrities and influencers alike donned Mukadi’s creations, making it a symbol of pride across the continent</p>
              <b className='text-gray-800'>Our Mission</b>
              <p>“At Mukadi Styles, our mission is to celebrate and preserve the rich heritage of African culture through innovative fashion. We are dedicated to crafting contemporary designs that honor traditional craftsmanship, empowering local artisans and communities. By using sustainable materials and ethical practices, we aim to redefine global fashion narratives, inspire self-expression, and promote cultural pride. Through our creations, we strive to connect people across the world, weaving together stories of identity, resilience, and unity.”</p>
 

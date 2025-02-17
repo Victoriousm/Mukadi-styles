@@ -57,7 +57,6 @@ const listProduct = async (req,res)=>{
     try {
         
         const products = await productModel.find({});
-        console.log(`Is it reaching here: ${products}`)
         res.json({success:true,products})
 
     } catch (error) {

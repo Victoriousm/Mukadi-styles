@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import React, { useContext, useEffect, useState } from 'react'
 import { ShopContext } from '../context/ShopContext'
 import { assets } from '../assets/assets';
@@ -86,7 +87,7 @@ const collection = () => {
     },[sortType])
 
   return (
-    <div className='flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 border-t'>
+    <div className='flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 border-t '>
       {React.createElement('span', null, )}
       {/* filters */}
       <div className='min-w-60'>
@@ -106,24 +107,41 @@ const collection = () => {
            <p className='flex gap-2'>
             <input className='w-3' type="checkbox"  value={'Kids'} onChange={toggleCategory}/> Kids
            </p>
+           <p className='flex gap-2'>
+            <input className='w-3' type="checkbox"  value={'Family'} onChange={toggleCategory}/> Family 
+           </p>
+          
+           
 
         </div>
         <div>
           {/* sub categories */}
           <div className={`border border-gray-300 pl-5 my-5 ${showFilter ? '' : 'hidden'} sm-bl`}>
-           <p className='mb-3 text-sm font-medium'>TYPE</p>
+           <p className='mb-3 text-sm font-medium'>SUB CATERGORIES</p>
            <div className='flex flex-col gap-2 text-sm font-light text-gray-700'></div>
            <p className='flex gap-2'>
-            <input className='w-3' type="checkbox"  value={'Topwear'} onChange={toggleSubCategory}/> Topwear
+            <input className='w-3' type="checkbox"  value={'Sweaters & Jackets'} onChange={toggleSubCategory}/>Sweaters & Jackets
            </p>
            <p className='flex gap-2'>
-            <input className='w-3' type="checkbox"  value={'Bottomwear'} onChange={toggleSubCategory}/> Bottomwear
+            <input className='w-3' type="checkbox"  value={'Dresses & Jumpsuits'} onChange={toggleSubCategory}/>Dresses & Jumpsuits
            </p>
            <p className='flex gap-2'>
-            <input className='w-3' type="checkbox"  value={'Winterwear'} onChange={toggleSubCategory}/> Winterwear
+            <input className='w-3' type="checkbox"  value={'Tops and Tees'} onChange={toggleSubCategory}/> Tops and Tees
            </p>
            <p className='flex gap-2'>
-            <input className='w-3' type="checkbox"  value={'Africanwear'} onChange={toggleSubCategory}/> African Outfits
+            <input className='w-3' type="checkbox"  value={'Skirts and Bottoms'} onChange={toggleSubCategory}/> Skirts and Bottoms
+           </p>
+           <p className='flex gap-2'>
+            <input className='w-3' type="checkbox"  value={'Long Sleeve Shirts'} onChange={toggleSubCategory}/>Long Sleeve Shirts
+           </p>
+           <p className='flex gap-2'>
+            <input className='w-3' type="checkbox"  value={'Short Sleeve Shirts'} onChange={toggleSubCategory}/>Short Sleeve Shirts
+           </p>
+           <p className='flex gap-2'>
+            <input className='w-3' type="checkbox"  value={'Him & Her'} onChange={toggleSubCategory}/>Him & Her
+           </p>
+           <p className='flex gap-2'>
+            <input className='w-3' type="checkbox"  value={'Accessories'} onChange={toggleSubCategory}/>Accessories
            </p>
 
         </div>

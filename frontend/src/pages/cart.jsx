@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import React, { useContext, useState } from 'react'
 import { ShopContext } from '../context/ShopContext'
 import { useEffect } from 'react';
@@ -14,7 +15,8 @@ const cart = () => {
 
   useEffect(() => {
 
-    // temporarily stores the data
+    if (products.length > 0) {
+      // temporarily stores the data
     const tempData =[];
     for(const items in cartItems){
       for(const item in cartItems[items]){
@@ -27,10 +29,13 @@ const cart = () => {
           
         }
       }
-    }
-    
+    }   
     setCartData(tempData)
-  },[cartItems])
+      
+    }
+
+    
+  },[cartItems,products])
   
   return (
     <div className='boarder-t pt-14'>

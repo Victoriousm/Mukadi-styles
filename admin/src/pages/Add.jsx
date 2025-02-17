@@ -108,16 +108,21 @@ const Add = ({token}) => {
                     <option value="Men">Men</option>
                     <option value="Women">Women</option>
                     <option value="Kids">Kids</option>
+                    <option value="Family">Family</option>
                 </select>
             </div>
 
             <div>
                 <p className='mb-2'>Product SubCategory</p>
                 <select onChange={(e)=>setSubCategory(e.target.value)}   className='w-full px-3 py-2' >
-                    <option value="Topwear">Topwear</option>
-                    <option value="Bottomwear">Bottomwear</option>
-                    <option value="Winterwear">Winterwear</option>
-                    <option value="Africanwear">AfricanWear</option>
+                    <option value="Sweaters & Jackets">Sweaters & Jackets</option>
+                    <option value="Dresses & Jumpsuits">Dresses & Jumpsuits</option>
+                    <option value="Tops and Tees">Tops and Tees</option>
+                    <option value="Skirts and Bottoms">Skirts and Bottoms</option>
+                    <option value="Long Sleeve Shirts">Long Sleeve Shirts</option>
+                    <option value="Short Sleeve Shirts">Short Sleeve Shirts</option>
+                    <option value="Him & Her">Him & Her</option>
+                    <option value="Accessories">Accessories</option>
                 </select>
             </div>
 
@@ -148,6 +153,9 @@ const Add = ({token}) => {
 
                 <div onClick={()=> setSizes(prev => prev.includes("XXL") ? prev.filter(item=> item !== "XXL") : [...prev,"XXL"])}>
                     <p className={`${sizes.includes("XXL") ? "bg-pink-300" : "bg-slate-200"} px-3 py-1 cursor-pointer`}>XXL</p>
+                </div>
+                <div onClick={()=> setSizes(prev => prev.includes("One Size") ? prev.filter(item=> item !== "One Size") : [...prev,"One Size"])}>
+                    <p className={`${sizes.includes("One Size") ? "bg-pink-300" : "bg-slate-200"} px-3 py-1 cursor-pointer`}>One Size</p>
                 </div>
             </div>
         </div>
