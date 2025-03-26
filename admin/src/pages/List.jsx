@@ -38,13 +38,13 @@ const List = ({token}) => {
       const response = await axios.post(backendUrl +'/api/product/remove', {id},{headers:{token}})
 
       if (response.data.success) {
-
+        console.log(`success: ${response.data}`)
         toast.success(response.data.message)
-
         await fetchList();
         
       }
       else{
+        console.log(`error: ${response.data.message}`)
         toast.error(response.data.message)
       }
 
@@ -57,7 +57,7 @@ const List = ({token}) => {
 
   useEffect(()=>{
     fetchList()
-  },[])
+  },[fetchList])
 
   return (
     <>

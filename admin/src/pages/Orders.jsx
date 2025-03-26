@@ -40,7 +40,7 @@ const Orders = ({ token }) => {
       
     } catch (error) {
       console.log(error)
-      toast.error(response.data.message)      
+      toast.error(error)      
     }
   }
 
@@ -87,8 +87,8 @@ const Orders = ({ token }) => {
               <p>payment : {order.payment ? 'Done ': 'Pending'}</p>
               <p>Date : {new Date(order.date).toLocaleDateString()}</p>
             </div>
-            <p onChange={(event) => statusHandler(event,order._id)} className="text-small sm:text-[15px]">{currency}{order.amount}</p>
-            <select value={order.status} className="p-2 font-semibold">
+            <p className="text-small sm:text-[15px]">{currency}{order.amount}</p>
+            <select value={order.status} className="p-2 font-semibold" onChange={(event) => statusHandler(event,order._id)}>
               <option value="Order Placed">Order Placed</option>
               <option value="Packing">Packing</option>
               <option value="Shipped">Shipped</option>

@@ -73,10 +73,11 @@ const removeProduct = async (req,res)=>{
     try {
 
         await productModel.findByIdAndDelete(req.body.id)
+        console.log(`success in backend ]`)
         res.json({sucess:true,message:"Product Removed"})
         
     } catch (error) {
-        console.log(error)
+        console.log(`error in backend ${error.message}`)
         res.json({sucess:false,message:error.message})
         
     }
