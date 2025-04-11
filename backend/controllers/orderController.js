@@ -2,6 +2,8 @@ import orderModel from "../models/orderModel.js";
 import userModel from "../models/userModel.js";
 
 // placing orders using cash on delivery
+let delivery_fee = 150;
+
 
 const placeOrder = async (req, res) =>{
     try {
@@ -36,15 +38,86 @@ const placeOrder = async (req, res) =>{
 
 // placing orders using visa
 
-const placeOrderVisa = async (req, res) =>{
-    
-}
+const placeOrderVisa = async (req, res) => {
+  try {
+    const { userId, items, amount, address, CardNumber, ExpiryDate, Cvv } = req.body;
 
-// placing orders using mobile money
+    let paymentStatus = false;
 
-const placeOrderAirtel = async (req, res) =>{
-    
-}
+    if (CardNumber && ExpiryDate && Cvv) {
+      if (CardNumber.length > 0 && CardNumber.charAt(0) !== '0' && ExpiryDate.length === 5 && Cvv.length === 3) {
+        paymentStatus = true;
+      } else {
+        return res.json({ success: false, message: "Invalid card details" });
+      }
+    } else {
+      return res.json({ success: false, message: "Missing card details" });
+    }
+
+    const totalAmount = Number(amount) + Number(delivery_fee);
+
+    const orderData = {
+      userId,
+      items,
+      address,
+      amount: totalAmount,
+      paymentMethod: "Visa",
+      payment: paymentStatus,
+      date: Date.now(),
+      delivery_fee: delivery_fee,
+    };
+
+    const newOrder = new orderModel(orderData);
+    await newOrder.save();
+    await userModel.findByIdAndUpdate(userId, { cartData: {} });
+
+    res.json({ success: true, message: "Visa Order Placed with Delivery Charge", totalAmount });
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, message: error.message });
+  }
+};
+
+const placeOrderAirtel = async (req, res) => {
+  try {
+    const { userId, items, amount, address, airtelNumber } = req.body;
+
+    let paymentStatus = false;
+
+    if (airtelNumber) {
+      if (airtelNumber.startsWith("0") && airtelNumber.length === 10) {
+        paymentStatus = true;
+      } else {
+        return res.json({ success: false, message: "Invalid Airtel number" });
+      }
+    } else {
+      return res.json({ success: false, message: "Missing Airtel number" });
+    }
+
+    const totalAmount = Number(amount) + delivery_fee;
+    console.log("totalAmount:"+ totalAmount);
+
+    const orderData = {
+      userId,
+      items,
+      address,
+      amount: totalAmount,
+      paymentMethod: "Airtel",
+      payment: paymentStatus,
+      date: Date.now(),
+      delivery_fee: delivery_fee,
+    };
+
+    const newOrder = new orderModel(orderData);
+    await newOrder.save();
+    await userModel.findByIdAndUpdate(userId, { cartData: {} });
+
+    res.json({ success: true, message: "Airtel Order Placed with Delivery Charge", totalAmount: totalAmount });
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, message: error.message });
+  }
+};
 
 //displaying all orders on our admin panel
 
