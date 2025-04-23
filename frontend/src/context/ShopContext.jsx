@@ -19,7 +19,6 @@ const ShopContextProvider = ({children})=>{
 
 
     const addToCart = async (itemId,size) =>{
-        
          //using this if statement we will output the message,this is using react tostify
         if (!size) {
             toast.error('Select Product Size');
@@ -112,10 +111,13 @@ const ShopContextProvider = ({children})=>{
         let totalAmount =0;
         for(const items in cartItems){
             let itemInfo = products.find((product)=> product._id === items);
+            console.log(`cartItems: `+ cartItems[items]);
             for(const item in cartItems[items]){
                 try {
                     if(cartItems[items][item]> 0){
+                        console.log(`cartItems[items][item]` + cartItems[items][item] + `itemInfo.price` + itemInfo.price)
                         totalAmount += itemInfo.price * cartItems[items][item]
+                        
                     }
                     
                 // eslint-disable-next-line no-unused-vars
@@ -123,6 +125,7 @@ const ShopContextProvider = ({children})=>{
                        // Handle any potential errors here 
                 }
             }
+            console.log(``)
         }
         return totalAmount
      }

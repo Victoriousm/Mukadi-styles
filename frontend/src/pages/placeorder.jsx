@@ -59,6 +59,7 @@ const placeorder = () => {
       };
 
       let response = '';
+      let cartAmount;
       switch (method) {
         case 'cod':
           orderData.amount = getCartAmount() + delivery_fee; // add delivery fee for cod
@@ -72,7 +73,8 @@ const placeorder = () => {
           break;
         case 'visa':
           // Add fake card details to orderData
-          orderData.amount = getCartAmount() + delivery_fee;
+          cartAmount= getCartAmount();
+          orderData.amount = cartAmount;
           orderData = {
             ...orderData,
             CardNumber: formData.CardNumber,
@@ -91,7 +93,9 @@ const placeorder = () => {
           break;
         case 'airtel':
           // Add airtel number to orderData
-          orderData.amount = getCartAmount() + delivery_fee;
+          cartAmount= getCartAmount();
+          orderData.amount = cartAmount;
+          console.log(`Print cart amount: ` +  orderData.amount)
           orderData = {
             ...orderData,
             airtelNumber: formData.airtelNumber,

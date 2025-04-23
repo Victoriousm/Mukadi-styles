@@ -54,7 +54,7 @@ const placeOrderVisa = async (req, res) => {
       return res.json({ success: false, message: "Missing card details" });
     }
 
-    const totalAmount = Number(amount) + Number(delivery_fee);
+    const totalAmount = amount + delivery_fee;
 
     const orderData = {
       userId,
@@ -94,8 +94,8 @@ const placeOrderAirtel = async (req, res) => {
       return res.json({ success: false, message: "Missing Airtel number" });
     }
 
-    const totalAmount = Number(amount) + delivery_fee;
-    console.log("totalAmount:"+ totalAmount);
+    const totalAmount = amount + delivery_fee;
+    console.log("totalAmount: "+ totalAmount); 
 
     const orderData = {
       userId,
