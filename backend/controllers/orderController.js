@@ -80,18 +80,18 @@ const placeOrderVisa = async (req, res) => {
 
 const placeOrderAirtel = async (req, res) => {
   try {
-    const { userId, items, amount, address, airtelNumber } = req.body;
+    const { userId, items, amount, address, mobileNumber } = req.body;
 
     let paymentStatus = false;
 
-    if (airtelNumber) {
-      if (airtelNumber.startsWith("0") && airtelNumber.length === 10) {
+    if (mobileNumber) {
+      if (mobileNumber.startsWith("0") && mobileNumber.length === 10) {
         paymentStatus = true;
       } else {
-        return res.json({ success: false, message: "Invalid Airtel number" });
+        return res.json({ success: false, message: "Invalid Mobile number" });
       }
     } else {
-      return res.json({ success: false, message: "Missing Airtel number" });
+      return res.json({ success: false, message: "Missing Mobile number" });
     }
 
     const totalAmount = amount + delivery_fee;
@@ -102,7 +102,7 @@ const placeOrderAirtel = async (req, res) => {
       items,
       address,
       amount: totalAmount,
-      paymentMethod: "Airtel",
+      paymentMethod: "Mobile Money",
       payment: paymentStatus,
       date: Date.now(),
       delivery_fee: delivery_fee,
@@ -112,7 +112,7 @@ const placeOrderAirtel = async (req, res) => {
     await newOrder.save();
     await userModel.findByIdAndUpdate(userId, { cartData: {} });
 
-    res.json({ success: true, message: "Airtel Order Placed with Delivery Charge", totalAmount: totalAmount });
+    res.json({ success: true, message: "Mobile Money Order Placed with Delivery Charge", totalAmount: totalAmount });
   } catch (error) {
     console.log(error);
     res.json({ success: false, message: error.message });

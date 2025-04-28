@@ -21,7 +21,8 @@ const Orders = ({ token }) => {
         { headers: { token } }
       );
       if (response.data.success) {
-        setOrders(response.data.orders);
+        const sortedOrders = response.data.orders.sort((a, b) => new Date(b.date) - new Date(a.date));
+        setOrders(sortedOrders);
       } else {
         toast.error(response.data.message);
       }
@@ -29,6 +30,7 @@ const Orders = ({ token }) => {
       toast.error(error.message);
     }
   };
+  
 
   const statusHandler = async (event,orderId) => {
     try {

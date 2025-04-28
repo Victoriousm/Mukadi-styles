@@ -23,7 +23,7 @@ const placeorder = () => {
     CardNumber: '', // Add fake card fields
     ExpiryDate: '',
     Cvv: '',
-    airtelNumber: '', // Add airtel number
+    mobileNumber: '', // Add airtel number
   });
 
   const onChangeHandler = (event) => {
@@ -73,8 +73,7 @@ const placeorder = () => {
           break;
         case 'visa':
           // Add fake card details to orderData
-          cartAmount= getCartAmount();
-          orderData.amount = cartAmount;
+          orderData.amount = getCartAmount();
           orderData = {
             ...orderData,
             CardNumber: formData.CardNumber,
@@ -98,14 +97,14 @@ const placeorder = () => {
           console.log(`Print cart amount: ` +  orderData.amount)
           orderData = {
             ...orderData,
-            airtelNumber: formData.airtelNumber,
+            mobileNumber: formData.mobileNumber,
           };
           response = await axios.post(backendUrl + '/api/order/airtel', orderData, { headers: { token } });
           console.log(response.data);
           if (response.data.success) {
             setCartItems({});
             navigate('/orders');
-            toast.success('Airtel Payment successful!');
+            toast.success('Mobile Money Payment successful!');
           } else {
             toast.error(response.data.message);
           }
@@ -152,7 +151,7 @@ const placeorder = () => {
 
         {method === 'airtel' && (
           <div>
-            <input required onChange={onChangeHandler} name="airtelNumber" value={formData.airtelNumber} className="border border-gray-300 rounded py-1.5 px-3.5 w-full mt-2" type="text" placeholder="Airtel Number" />
+            <input required onChange={onChangeHandler} name="mobileNumber" value={formData.mobileNumber} className="border border-gray-300 rounded py-1.5 px-3.5 w-full mt-2" type="text" placeholder="Mobile Money Number" />
           </div>
         )}
       </div>
@@ -164,7 +163,7 @@ const placeorder = () => {
             <Title text1={'PAYMENT'} text2={'METHOD'} />
             {/* payment method selection */}
             <div className="flex gap-3 flex-col lg:flex-row">
-              <div onClick={() => setMethod('airtel')} className="flex items-center bg-red-600 gap-3 border p-2 px-3 cursor-pointer">
+              <div onClick={() => setMethod('airtel')} className="flex items-center bg-red-500 gap-3 border p-2 px-3 cursor-pointer">
                 <p className={`min-w-3.5 h-3.5 border rounded-full ${method === 'airtel' ? 'bg-green-600' : ''}`}></p>
                 <img className="h-10 mx-4" src={assets.airtel} alt="" />
               </div>

@@ -89,8 +89,8 @@ const product = () => {
             <p className='border px-5 py-3 text-sm'>Reviews(122)</p>
           </div>
           <div className='flex flex-col gap-4 border-6 py-6 text-gray-500'>
-            <p>Thank you for shopping withius wowojjwbcghdbc bnvhjdvbfh </p>
-            <p>awwwww gfhurjhf heuhfehjejdeiedejdh jffehjeiedhehhjd hedhe </p>
+            <p>We want to take a moment to express our heartfelt appreciation to all our wonderful customers. Your support means the world to us and helps us celebrate the rich and vibrant culture of African fashion. Every time you choose our store, you’re not just purchasing clothing; you’re embracing heritage, artistry, and community. </p>
+            <p>Thank you for being a part of our journey and for allowing us to share the beauty of African designs with you. We look forward to bringing you more unique styles that inspire and empower! </p>
           </div>
       </div>
       {/* display related products */}
