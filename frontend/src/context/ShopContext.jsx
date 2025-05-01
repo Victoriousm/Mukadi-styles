@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import axios from 'axios'
 
 export const ShopContext = createContext();
-const backendUrl = "http://localhost:4000";//import.meta.env.VITE_BACKEND_URL
+const backendUrl = "https://mukadi-styles-3.onrender.com/";//import.meta.env.VITE_BACKEND_URL
 
 const ShopContextProvider = ({children})=>{
     const currency = 'K'
@@ -49,7 +49,7 @@ const ShopContextProvider = ({children})=>{
         if(token){
             try {
                 
-                await axios.post("http://localhost:4000" + '/api/cart/add',{itemId,size} , {headers:{token}})
+                await axios.post("https://mukadi-styles-3.onrender.com/" + '/api/cart/add',{itemId,size} , {headers:{token}})
 
             } catch (error) {
                 console.log(error)
@@ -93,7 +93,7 @@ const ShopContextProvider = ({children})=>{
             try {
                 
 
-                await axios.post( "http://localhost:4000" + '/api/cart/update' , {itemId,size,quantity} , {headers:{token}})
+                await axios.post( "https://mukadi-styles-3.onrender.com/" + '/api/cart/update' , {itemId,size,quantity} , {headers:{token}})
 
             } catch (error) {
                 console.log(error)
@@ -134,7 +134,7 @@ const ShopContextProvider = ({children})=>{
 
         try {
 
-            const response = await axios.get("http://localhost:4000" + '/api/product/list')
+            const response = await axios.get("https://mukadi-styles-3.onrender.com/" + '/api/product/list')
           
             if(response.data.success){
                 
@@ -155,7 +155,7 @@ const ShopContextProvider = ({children})=>{
      const getUserCart = async (token) => {
         try {
             
-            const response = await axios.post("http://localhost:4000" + '/api/cart/get' ,{},{headers:{token}})
+            const response = await axios.post("https://mukadi-styles-3.onrender.com/" + '/api/cart/get' ,{},{headers:{token}})
             if (response.data.success) {
                 setCartItems(response.data.cartData)
             }
