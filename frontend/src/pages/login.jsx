@@ -16,7 +16,7 @@ const login = () => {
     event.preventDefault();
     try {
       if (currentState === 'Sign Up') {
-        const response= await axios.post("https://mukadi-styles-3.onrender.com/" + '/api/user/register', {name,email,password})
+        const response= await axios.post("https://mukadi-styles-3.onrender.com" + '/api/user/register', {name,email,password})
         if (response.data.success) {
           setToken(response.data.token)
           localStorage.setItem('token',response.data.token)
@@ -29,7 +29,7 @@ const login = () => {
 
         
       }else{
-        const response = await axios.post ("https://mukadi-styles-3.onrender.com/" + '/api/user/login' , {email,password})
+        const response = await axios.post ("https://mukadi-styles-3.onrender.com" + '/api/user/login' , {email,password})
         if (response.data.success) {
           setToken(response.data.token)
           localStorage.setItem('token',response.data.token)
