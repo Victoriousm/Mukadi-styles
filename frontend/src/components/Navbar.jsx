@@ -19,7 +19,7 @@ const Navbar = () => {
 return (
     <div className='flex items-center justify-between  font-medium'> {/* This is a comment explaining the span element */}
       {React.createElement('span', null, )}
-      <Link to= '/'><img src={assets.logo} className='w-60 flex gap-10 ' alt=""/></Link>
+      <Link to= '/'><img src={assets.logo} className='w-40 flex gap-10 ' alt=""/></Link>
       <ul className='hidden sm:flex gap-5 text-sm text-gray-700  '>
 
         <NavLink to='/' className='flex flex-col items-center gap-1'>

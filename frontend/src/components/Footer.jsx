@@ -9,7 +9,7 @@ const Footer = () => {
          <div className='flex flex-col sm:grid grid-cols-[3fr_1fr_1fr] gap-14 my-10 mt-40 text-sm'>
             <div>
                 <img src={assets.logo} className='mb-5 w-60' alt="" />
-                <p className='w-5 md:w-2/3 text-gray-600'>
+                <p className='w-full max-w-2xl mx-auto px-4 text-gray-600'>
                 Mukadi Styles: The epitome of timeless elegance,where confidence is couture.Mukadi Styles is not just a fashion house, it is a movement. We believe in dressing for yourself, for your confidence, for your story. Mukadi Styles is about embracing individuality, pushing boundaries, and making a statement.  We craft timeless pieces that transcend trends, blending modern silhouettes with luxurious fabrics and intricate details.  Our designs are meant to empower, to elevate, to inspire you to be your most authentic self. 
                 </p>
             </div>
